@@ -69,4 +69,19 @@
 				<p>This library has a dependency on the <strong>nblas</strong> package for fast matrix operations.
 					It should work by default on OSX, but on Linux you may need to run <code>apt-get install libblas-dev</code> first.
 				On Windows you may need to install <a href="http://www.netlib.org/lapack/#_lapack_version_3_7_0_2">LAPACK</a>.</p>
-				<p>This library is in an early d
+				<p>This library is in an early development phase and many <strong>breaking changes are to be expected</strong>.</p>
+				<p>The TypeScript source files can be found on <a href="https://github.com/erikgerrits/machine-learning">GitHub</a> and the JavaScript production files(including .ts.d files) can be found as an <a href="https://www.npmjs.com/package/machine-learning">npm package</a>.</p>
+				<h2 id="documentation">Documentation</h2>
+				<p>Below are some simple code usage examples. TypeDocs for all classes can be found <a href="http://platformj.com">here</a>.</p>
+				<ul>
+					<li><a href="#feedforward-neural-network">Feedforward Neural Network</a></li>
+					<li><a href="#linear-regression">Linear Regression</a></li>
+					<li><a href="#logistic-regression">Logistic Regression</a></li>
+					<li><a href="#multiclass-logistic-regression">Multiclass Logistic Regression</a></li>
+					<li><a href="#nearest-neighbors">Nearest Neighbors</a></li>
+				</ul>
+				<h3 id="feedforward-neural-network">Feedforward Neural Network</h3>
+				<pre><code class="lang-TypeScript"><span class="hljs-keyword">import</span> * as ml from <span class="hljs-string">'machine-learning'</span>;
+
+<span class="hljs-comment">// Feedforward neural network: solve XNOR problem (opposite of XOR)</span>
+<span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span>
