@@ -84,4 +84,14 @@
 				<pre><code class="lang-TypeScript"><span class="hljs-keyword">import</span> * as ml from <span class="hljs-string">'machine-learning'</span>;
 
 <span class="hljs-comment">// Feedforward neural network: solve XNOR problem (opposite of XOR)</span>
-<span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span>
+<span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]]);
+<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">1</span>], [<span class="hljs-number">0</span>], [<span class="hljs-number">0</span>], [<span class="hljs-number">1</span>]]);
+
+<span class="hljs-keyword">const</span> feedforwardNeuralNetwork = <span class="hljs-keyword">new</span> ml.FeedforwardNeuralNetwork([<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>], <span class="hljs-number">0</span>);
+feedforwardNeuralNetwork.setNumberOfEpochs(<span class="hljs-number">1000</span>);
+feedforwardNeuralNetwork.setLearningRate(<span class="hljs-number">1</span>);
+
+feedforwardNeuralNetwork.train(inputs, targets);
+<span class="hljs-keyword">const</span> predictions = feedforwardNeuralNetwork.predict(inputs);
+<span class="hljs-built_in">console</span>.log(predictions.toArray());
+<span class="hljs-comment">// [ [ 0.9943559154265011 ], [ 0.012148393118769857 ], [ 0.013640408487437417 ], [ 0.9816837627444868
