@@ -94,4 +94,16 @@ feedforwardNeuralNetwork.setLearningRate(<span class="hljs-number">1</span>);
 feedforwardNeuralNetwork.train(inputs, targets);
 <span class="hljs-keyword">const</span> predictions = feedforwardNeuralNetwork.predict(inputs);
 <span class="hljs-built_in">console</span>.log(predictions.toArray());
-<span class="hljs-comment">// [ [ 0.9943559154265011 ], [ 0.012148393118769857 ], [ 0.013640408487437417 ], [ 0.9816837627444868
+<span class="hljs-comment">// [ [ 0.9943559154265011 ], [ 0.012148393118769857 ], [ 0.013640408487437417 ], [ 0.9816837627444868 ] ]</span>
+</code></pre>
+				<p>For more detailed information, access the <a href="http://platformj.com/classes/_machine_learning_supervised_feedforwardneuralnetwork_.feedforwardneuralnetwork.html">FeedforwardNeuralNetwork class documentation</a></p>
+				<h3 id="linear-regression">Linear Regression</h3>
+				<pre><code class="lang-TypeScript"><span class="hljs-keyword">import</span> * as ml from <span class="hljs-string">'machine-learning'</span>;
+
+<span class="hljs-comment">// Linear Regression: y = 1000 + 200 * x</span>
+<span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">5</span>], [<span class="hljs-number">7</span>], [<span class="hljs-number">9</span>], [<span class="hljs-number">11</span>], [<span class="hljs-number">13</span>]]);
+<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">2000</span>], [<span class="hljs-number">2400</span>], [<span class="hljs-number">2800</span>], [<span class="hljs-number">3200</span>], [<span class="hljs-number">3600</span>]]);
+
+<span class="hljs-keyword">const</span> linearRegression = <span class="hljs-keyword">new</span> ml.LinearRegression();
+linearRegression.setNumberOfEpochs(<span class="hljs-number">10000</span>);
+linearRegression.setLearningRate(<span class="hljs-number">0.02</
