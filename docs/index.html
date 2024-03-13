@@ -106,4 +106,16 @@ feedforwardNeuralNetwork.train(inputs, targets);
 
 <span class="hljs-keyword">const</span> linearRegression = <span class="hljs-keyword">new</span> ml.LinearRegression();
 linearRegression.setNumberOfEpochs(<span class="hljs-number">10000</span>);
-linearRegression.setLearningRate(<span class="hljs-number">0.02</
+linearRegression.setLearningRate(<span class="hljs-number">0.02</span>);
+
+linearRegression.train(inputs, targets);
+<span class="hljs-keyword">const</span> predictions = linearRegression.predict(inputs);
+<span class="hljs-built_in">console</span>.log(predictions.toArray());
+<span class="hljs-comment">// [ [ 1999.999991189672 ], [ 2399.9999948012005 ], [ 2799.999998412729 ], [ 3200.0000020242574 ], [ 3600.000005635786 ] ]</span>
+</code></pre>
+				<p>For more detailed information, access the <a href="http://platformj.com/classes/_machine_learning_supervised_linearregression_.linearregression.html">LinearRegression class documentation</a></p>
+				<h3 id="logistic-regression">Logistic Regression</h3>
+				<pre><code class="lang-TypeScript"><span class="hljs-keyword">import</span> * as ml from <span class="hljs-string">'machine-learning'</span>;
+
+<span class="hljs-comment">// Logistic Regression: determine if second input is higher than first input</span>
+<span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">1000</span>, <span class="hljs-number">1100</span>], [<span class="hljs-number">4500</span>, <span class="hljs-number">3000</span>], [<span class="hljs-number">700</span>, <span class="hljs-number">1300</span>], [<span class="hljs-number">1150</span>, <span class="hljs-number">700</span>], [<span class="hljs-number">1300</span>, <span class="hljs-nu
