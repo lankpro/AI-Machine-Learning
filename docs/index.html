@@ -148,4 +148,9 @@ multiclassLogisticRegression.train(inputs, targets);
 <span class="hljs-comment">// [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ], [ 1, 0, 0 ], [ 0, 0, 1 ], [ 0, 1, 0 ] ]</span>
 </code></pre>
 				<p>For more detailed information, access the <a href="http://platformj.com/classes/_machine_learning_supervised_multiclasslogisticregression_.multiclasslogisticregression.html">MulticlassLogisticRegression class documentation</a></p>
-				<h3 id="nearest-neighbors">Neare
+				<h3 id="nearest-neighbors">Nearest Neighbors</h3>
+				<pre><code class="lang-TypeScript"><span class="hljs-keyword">import</span> * as ml from <span class="hljs-string">'machine-learning'</span>;
+
+<span class="hljs-comment">// Nearest neighbors: Equidistant examples, breaks ties by considering multiple neighbors even though number set to 1</span>
+<span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]]);
+<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-
