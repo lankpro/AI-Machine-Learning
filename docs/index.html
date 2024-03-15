@@ -153,4 +153,15 @@ multiclassLogisticRegression.train(inputs, targets);
 
 <span class="hljs-comment">// Nearest neighbors: Equidistant examples, breaks ties by considering multiple neighbors even though number set to 1</span>
 <span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]]);
-<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-
+<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]]);
+
+<span class="hljs-keyword">const</span> nearestNeighbors = <span class="hljs-keyword">new</span> ml.NearestNeighbors(inputs, targets);
+nearestNeighbors.setNumberOfNeighbors(<span class="hljs-number">1</span>);
+
+<span class="hljs-keyword">const</span> unknowns = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>], [<span class="hljs-number">1.5</span>, <span class="hljs-number">1.5</span>], [<span class="hljs-number">1.75</span>, <span class="hljs-number">1.75</span>]]);
+
+<span class="hljs-keyword">const</span> predictions = nearestNeighbors.predict(unknowns);
+<span class="hljs-built_in">console</span>.log(predictions.toArray());
+<span class="hljs-comment">// [ [ 0.4, 0.2, 0.2, 0.2 ], [ 0.6666666666666666, 0, 0, 0.3333333333333333 ], [ 0, 0, 0, 1 ] ]</span>
+</code></pre>
+				<p>For more detailed information, access the <a href="http://platfo
