@@ -136,4 +136,16 @@ logisticRegression.train(inputs, targets);
 
 <span class="hljs-comment">// Multiclass Logistic Regression: determine the highest value</span>
 <span class="hljs-keyword">const</span> inputs = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">4500</span>, <span class="hljs-number">1200</span>, <span class="hljs-number">3000</span>], [<span class="hljs-number">700</span>, <span class="hljs-number">890</span>, <span class="hljs-number">800</span>], [<span class="hljs-number">700</span>, <span class="hljs-number">1200</span>, <span class="hljs-number">1300</span>], [<span class="hljs-number">1150</span>, <span class="hljs-number">600</span>, <span class="hljs-number">700</span>], [<span class="hljs-number">600</span>, <span class="hljs-number">1500</span>, <span class="hljs-number">1650</span>], [<span class="hljs-number">400</span>, <span class="hljs-number">401</span>, <span class="hljs-number">400</span>]]);
-<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-
+<span class="hljs-keyword">const</span> targets = <span class="hljs-keyword">new</span> ml.Matrix([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>]]);
+
+<span class="hljs-keyword">const</span> multiclassLogisticRegression = <span class="hljs-keyword">new</span> ml.MulticlassLogisticRegression();
+multiclassLogisticRegression.setNumberOfEpochs(<span class="hljs-number">10000</span>);
+multiclassLogisticRegression.setLearningRate(<span class="hljs-number">0.1</span>);
+
+multiclassLogisticRegression.train(inputs, targets);
+<span class="hljs-keyword">const</span> predictions = multiclassLogisticRegression.predict(inputs);
+<span class="hljs-built_in">console</span>.log(predictions.toArray());
+<span class="hljs-comment">// [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ], [ 1, 0, 0 ], [ 0, 0, 1 ], [ 0, 1, 0 ] ]</span>
+</code></pre>
+				<p>For more detailed information, access the <a href="http://platformj.com/classes/_machine_learning_supervised_multiclasslogisticregression_.multiclasslogisticregression.html">MulticlassLogisticRegression class documentation</a></p>
+				<h3 id="nearest-neighbors">Neare
