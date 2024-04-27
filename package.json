@@ -1,0 +1,45 @@
+
+{
+  "name": "machine-learning",
+  "version": "0.2.0",
+  "description": "TypeScript & JavaScript machine learning library",
+  "main": "dist/lib/index.js",
+  "typings": "dist/lib/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikgerrits/machine-learning.git"
+  },
+  "keywords": [
+    "machine learning",
+    "artificial intelligence",
+    "matrix",
+    "neural network",
+    "linear regression",
+    "logistic regression",
+    "nearest neighbors",
+    "k-nearest neighbors",
+    "k nearest neighbors",
+    "k-NN",
+    "KNN"
+  ],
+  "author": "Erik Gerrits <gerrits.erik@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erikgerrits/machine-learning/issues"
+  },
+  "homepage": "https://github.com/erikgerrits/machine-learning#readme",
+  "dependencies": {
+    "@types/chance": "^0.7.31",
+    "@types/nblas": "^1.2.0",
+    "chance": "^1.0.4",
+    "express": "^4.14.1",
+    "nblas": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.5",
+    "typescript": "^2.1.6"
+  }
+}
