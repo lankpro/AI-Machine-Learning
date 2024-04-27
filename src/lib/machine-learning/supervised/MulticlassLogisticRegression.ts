@@ -30,4 +30,56 @@ export default class MulticlassLogisticRegression {
     }
 
     public predict (inputs: Matrix) {
-        return this.logisticRegressions.reduce((accumulatedPredict
+        return this.logisticRegressions.reduce((accumulatedPredictions: Matrix, logisticRegression) => accumulatedPredictions.appendRight(logisticRegression.predict(inputs)), new Matrix([]));
+    }
+
+
+    /* Parameter setters */
+
+    /**
+     * Set batch size to
+     * - 0 for batch gradient descent
+     * - 1 for stochastic gradient descent
+     * - >1 for mini-batch gradient descent
+     *
+     * @param batchSize
+     */
+    public setBatchSize (batchSize = 0) {
+        this.batchSize = batchSize;
+    }
+
+    public setLearningRate (learningRate: number) {
+        this.learningRate = learningRate;
+    }
+
+    public setNumberOfEpochs (numberOfEpochs: number) {
+        this.numberOfEpochs = numberOfEpochs;
+    }
+
+    public setRegularizationFactor (regularizationFactor: number) {
+        this.regularizationFactor = regularizationFactor;
+    }
+
+    public setHypothesis (hypothesesPerClass: Matrix[]) {
+        this.logisticRegressions.forEach((logisticRegression, i) => logisticRegression.setHypothesis(hypothesesPerClass[i]));
+    }
+
+    public resetHypothesis () {
+        this.logisticRegressions = undefined;
+    }
+
+    /* Parameter getters */
+
+    public getBatchSize () {
+        return this.batchSize;
+    }
+
+    public getLearningRate () {
+        return this.learningRate;
+    }
+
+    public getNumberOfEpochs () {
+        return this.numberOfEpochs;
+    }
+
+    public getRegularizationFactor ()
