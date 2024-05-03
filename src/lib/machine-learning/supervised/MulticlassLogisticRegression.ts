@@ -82,4 +82,11 @@ export default class MulticlassLogisticRegression {
         return this.numberOfEpochs;
     }
 
-    public getRegularizationFactor ()
+    public getRegularizationFactor () {
+        return this.regularizationFactor;
+    }
+
+    public getHypothesis () {
+        return this.logisticRegressions.map(logisticRegression => logisticRegression.getHypothesis());
+    }
+}
