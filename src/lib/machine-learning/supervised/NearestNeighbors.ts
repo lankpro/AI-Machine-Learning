@@ -47,4 +47,37 @@ export default class NearestNeighbors {
 
     /* Private methods */
 
-   
+    private predictOne (input: Matrix) {
+        let neighbors: Neighbor[] = [];
+        let furthestNeighborDistance = 0;
+
+        for (let exampleIndex = 0; exampleIndex < this.inputs.getRowCount(); exampleIndex++) {
+            const exampleInput = this.inputs.getRow(exampleIndex);
+            const exampleOutput = this.targets.getRow(exampleIndex);
+
+            const distance = this.distanceFunction(input, exampleInput);
+
+            if (exampleIndex < this.numberOfNeighbors) {
+                neighbors.push(new Neighbor(distance, exampleOutput));
+
+                if (distance > furthestNeighborDistance) {
+                    furthestNeighborDistance = distance;
+                }
+
+                continue;
+            }
+
+            if (distance > furthestNeighborDistance) {
+                continue;
+            }
+
+            if (neighbors.length >= this.numberOfNeighbors) {
+                neighbors = neighbors.filter(neighbor => neighbor.getDistance() <= distance);
+            }
+
+            neighbors.push(new Neighbor(distance, exampleOutput));
+
+            furthestNeighborDistance = neighbors.reduce((furthestDistance, neighbor) => neighbor.getDistance() > furthestDistance ? neighbor.getDistance() : furthestDistance, 0);
+        }
+
+        return neighbors.reduce((prediction, neighbor) => prediction.add(neighbor.getOutput()), Matrix.zeros(1, neighbors[0].getOutput().getColumnCount())).multiply(1 / nei
