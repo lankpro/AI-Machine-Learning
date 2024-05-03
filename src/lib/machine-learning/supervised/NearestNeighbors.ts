@@ -80,4 +80,19 @@ export default class NearestNeighbors {
             furthestNeighborDistance = neighbors.reduce((furthestDistance, neighbor) => neighbor.getDistance() > furthestDistance ? neighbor.getDistance() : furthestDistance, 0);
         }
 
-        return neighbors.reduce((prediction, neighbor) => prediction.add(neighbor.getOutput()), Matrix.zeros(1, neighbors[0].getOutput().getColumnCount())).multiply(1 / nei
+        return neighbors.reduce((prediction, neighbor) => prediction.add(neighbor.getOutput()), Matrix.zeros(1, neighbors[0].getOutput().getColumnCount())).multiply(1 / neighbors.length);
+    }
+}
+
+class Neighbor {
+
+    public constructor (private distance: number, private output: Matrix) {}
+
+    public getDistance () {
+        return this.distance;
+    }
+
+    public getOutput () {
+        return this.output;
+    }
+}
