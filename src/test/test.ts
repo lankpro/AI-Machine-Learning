@@ -36,4 +36,31 @@ import * as ml from '../lib/index';
     const targets = new ml.Matrix([[1], [0], [1], [0], [0], [1]]);
 
     const logisticRegression = new ml.LogisticRegression();
-    logistic
+    logisticRegression.setNumberOfEpochs(1000);
+    logisticRegression.setLearningRate(0.01);
+
+    logisticRegression.train(inputs, targets);
+    const predictions = logisticRegression.predict(inputs);
+    console.log(predictions.toArray());
+    // [ [ 1 ], [ 0 ], [ 1 ], [ 0 ], [ 0 ], [ 1 ] ]
+}
+
+{
+    // Multiclass Logistic Regression: determine the highest value
+    const inputs = new ml.Matrix([[4500, 1200, 3000], [700, 890, 800], [700, 1200, 1300], [1150, 600, 700], [600, 1500, 1650], [400, 401, 400]]);
+    const targets = new ml.Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1], [1, 0, 0], [0, 0, 1], [0, 1, 0]]);
+
+    const multiclassLogisticRegression = new ml.MulticlassLogisticRegression();
+    multiclassLogisticRegression.setNumberOfEpochs(10000);
+    multiclassLogisticRegression.setLearningRate(0.1);
+
+    multiclassLogisticRegression.train(inputs, targets);
+    const predictions = multiclassLogisticRegression.predict(inputs);
+    console.log(predictions.toArray());
+    // [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ], [ 1, 0, 0 ], [ 0, 0, 1 ], [ 0, 1, 0 ] ]
+}
+
+{
+    // Nearest neighbors: Equidistant examples, breaks ties by considering multiple neighbors even though number set to 1
+    const inputs = new ml.Matrix([[0, 0], [0, 1], [1, 0], [1, 1], [1, 1], [2, 2]]);
+    const targets = new ml.Matrix([[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 
