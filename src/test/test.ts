@@ -63,4 +63,22 @@ import * as ml from '../lib/index';
 {
     // Nearest neighbors: Equidistant examples, breaks ties by considering multiple neighbors even though number set to 1
     const inputs = new ml.Matrix([[0, 0], [0, 1], [1, 0], [1, 1], [1, 1], [2, 2]]);
-    const targets = new ml.Matrix([[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 
+    const targets = new ml.Matrix([[0, 0, 0, 1], [0, 0, 1, 0], [0, 1, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1]]);
+
+    const nearestNeighbors = new ml.NearestNeighbors();
+    nearestNeighbors.setNumberOfNeighbors(1);
+
+    nearestNeighbors.train(inputs, targets);
+
+    const unknowns = new ml.Matrix([[0.5, 0.5], [1.5, 1.5], [1.75, 1.75]]);
+    const predictions = nearestNeighbors.predict(unknowns);
+    console.log(predictions.toArray());
+    // [ [ 0.4, 0.2, 0.2, 0.2 ], [ 0.6666666666666666, 0, 0, 0.3333333333333333 ], [ 0, 0, 0, 1 ] ]
+}
+
+{
+    const nn = new ml.FeedforwardNeuralNetwork([40, 40, 40, 40, 40]);
+    console.log('');
+    console.log('Checking FeedforwardNeuralNetwork gradients...');
+    console.log(nn.checkGradients() ? 'OK' : 'GRADIENTS NOT OK!!!');
+}
